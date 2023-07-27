@@ -7,6 +7,7 @@ export interface Departure {
     index: number;
     destination: string;
     time: string;
+    minutes: number;
 }
 
 export async function getDepartures(): Array<Departure> {
@@ -19,7 +20,8 @@ export async function getDepartures(): Array<Departure> {
         .map((tflPrediction, index) => ({
             index: index + 1,
             destination: tflPrediction.towards,
-            time: transformTimeToStation(tflPrediction.timeToStation)
+            time: transformTimeToStation(tflPrediction.timeToStation),
+            minutes: tflPrediction.timeToStation / 60,
         }))
         .slice(0, 3);
     return departures
