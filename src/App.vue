@@ -3,9 +3,7 @@ import DmiDisplay from "@/components/DmiElements/DmiDisplay.vue";
 </script>
 
 <template>
-  <main>
-    <DmiDisplay />
-  </main>
+  <DmiDisplay/>
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="dmi-row">
     <dmi-pixel-line :data="fillBlank(241)"/>
     <dmi-pixel-line v-for="line in data" :data="line"/>
     <dmi-pixel-line :data="fillBlank(241)"/>
@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.row {
+.dmi-row {
   line-height: 0;
 }
 </style>
