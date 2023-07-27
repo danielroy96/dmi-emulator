@@ -1,14 +1,16 @@
 import {Departure, getDepartures} from "./tfl";
 import {characterMap} from "./characters";
 
-export async function buildData(): Array<Array<Array<Number>>> {
-    const departures = await getDepartures();
-    const departureStrings = departures.map(departure => departureToString(departure))
-        .map(departureString => departureStringToBytes(departureString));
-    return departureStrings;
+export async function departuresToDmi(departures: Array<Departure>): Array<Array<Array<Number>>> {
+    return departures.map(departure => departureToString(departure))
+        .map(departureString => stringToDmi(departureString));
 }
 
-function departureStringToBytes(departureString: string): Array<Array<number>> {
+export function stringToDmi(value: string): Array<Array<number>> {
+    return string40Bits(value.padEnd(40).slice(0, 40));
+}
+
+function string40Bits(departureString: string): Array<Array<number>> {
     let characterArray = [[], [], [], [], [], [], []];
     for (let i = 0; i < departureString.length; i++) {
         const currentCharacterAscii = departureString.charCodeAt(i).toString(16);
@@ -23,8 +25,6 @@ function departureStringToBytes(departureString: string): Array<Array<number>> {
     }
     return characterArray;
 }
-
-
 
 // Example string
 // 0  Walthamstow Central             2 min

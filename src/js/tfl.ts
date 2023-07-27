@@ -20,7 +20,8 @@ export async function getDepartures(): Array<Departure> {
             index: index + 1,
             destination: tflPrediction.towards,
             time: transformTimeToStation(tflPrediction.timeToStation)
-        }));
+        }))
+        .slice(0, 3);
     return departures
 }
 
