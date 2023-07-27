@@ -1,8 +1,8 @@
 <template>
   <div class="row">
-    <dmi-pixel-line :data="fillBlank(240)"/>
+    <dmi-pixel-line :data="fillBlank(241)"/>
     <dmi-pixel-line v-for="line in data" :data="line"/>
-    <dmi-pixel-line :data="fillBlank(240)"/>
+    <dmi-pixel-line :data="fillBlank(241)"/>
   </div>
 </template>
 

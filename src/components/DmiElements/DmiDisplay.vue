@@ -45,6 +45,7 @@ export default defineComponent({
         this.departureBits[1] = this.trainApproachingBits;
         await this.sleep(500)
       }
+      this.sleep(5000);
     },
     sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -55,7 +56,10 @@ export default defineComponent({
 
 <style scoped>
 .display {
-  background-color: white;
+  background-color: dimgray;
   display: block;
+  width: fit-content;
+  border: 1em solid #262626;
+  margin: 20vh auto;
 }
 </style>

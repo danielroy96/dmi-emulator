@@ -11,7 +11,7 @@ export function stringToDmi(value: string): Array<Array<number>> {
 }
 
 function string40Bits(departureString: string): Array<Array<number>> {
-    let characterArray = [[], [], [], [], [], [], []];
+    let characterArray = [[0], [0], [0], [0], [0], [0], [0]];
     for (let i = 0; i < departureString.length; i++) {
         const currentCharacterAscii = departureString.charCodeAt(i).toString(16);
         const characterMappers = characterMap[currentCharacterAscii].rows;

@@ -25,6 +25,6 @@ export default defineComponent({
   display: inline-block;
 }
 .pixel.active {
-  background-color: orange;
+  background-color: #ffdd00;
 }
 </style>
