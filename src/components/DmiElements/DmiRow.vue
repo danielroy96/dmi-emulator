@@ -1,19 +1,18 @@
 <template>
   <div class="row">
-    <span v-for="y in fill(height)" class="line">
-      <dmi-pixel v-for="x in fill(width)" />
-      <br/>
-    </span>
+    <dmi-pixel-line v-for="line in data" :data="line"/>
   </div>
 </template>
 
 <script>
 import {defineComponent} from 'vue'
 import DmiPixel from "@/components/DmiElements/DmiPixel.vue";
+import {fill} from "@/js/util";
+import DmiPixelLine from "@/components/DmiElements/DmiPixelLine.vue";
 
 export default defineComponent({
   name: "DmiRow",
-  components: {DmiPixel},
+  components: {DmiPixelLine, DmiPixel},
   props: {
     width: {
       type: Number,
@@ -29,9 +28,7 @@ export default defineComponent({
     }
   },
   methods: {
-    fill(max) {
-      return Array(max).fill().map((_, i) => i + 1);
-    }
+    fill,
   }
 })
 </script>

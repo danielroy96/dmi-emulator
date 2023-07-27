@@ -1,19 +1,17 @@
 import {Departure, getDepartures} from "./tfl";
 import {characterMap} from "./characters";
 
-export async function buildData(): Array<Array<Number>> {
+export async function buildData(): Array<Array<Array<Number>>> {
     const departures = await getDepartures();
-    const departureStrings = departures.map(departure => departureToString(departure));
-    console.log(departureStrings);
-    departureStringToBytes("A");
+    const departureStrings = departures.map(departure => departureToString(departure))
+        .map(departureString => departureStringToBytes(departureString));
+    return departureStrings;
 }
 
 function departureStringToBytes(departureString: string): Array<Array<number>> {
     let characterArray = [[], [], [], [], [], [], []];
     for (let i = 0; i < departureString.length; i++) {
-        console.log("processing character " + departureString[i])
         const currentCharacterAscii = departureString.charCodeAt(i).toString(16);
-        console.log("ascii character " + currentCharacterAscii);
         const characterMappers = characterMap[currentCharacterAscii].rows;
         for (let j = 0; j < characterMappers.length; j ++) {
             const currentRow = characterMappers[j].toString(2).padStart(5, 0);
@@ -22,7 +20,6 @@ function departureStringToBytes(departureString: string): Array<Array<number>> {
             }
         }
     }
-    console.log(characterArray);
     return characterArray;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="display">
-    <dmi-row :data="data" :height="7" :width="200"/>
-    <dmi-row :data="data" :height="7" :width="200"/>
+    <dmi-row :data="departures[0]" :height="7" :width="200"/>
+    <dmi-row :data="departures[1]" :height="7" :width="200"/>
   </div>
 </template>
 
@@ -19,10 +19,6 @@ export default defineComponent({
   data() {
     return {
       departures: [],
-      data: [
-        [0, 0, 0, 0],
-        [0, 1, 0, 1],
-      ]
     }
   }
 })
