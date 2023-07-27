@@ -34,7 +34,7 @@ export default defineComponent({
     async updateDmiWithDepartures() {
       this.departures = await getDepartures();
       this.departureBits = await departuresToDmi(this.departures);
-      if (this.departures[0].minutes < 1) {
+      if (this.departures[0].minutes < 0.5) {
         await this.trainApproachingSequence();
       }
     },
