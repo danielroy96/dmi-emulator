@@ -1,7 +1,7 @@
 <template>
   <div class="display">
-    <dmi-row :data="departures[0]" :height="7" :width="200"/>
-    <dmi-row :data="departures[1]" :height="7" :width="200"/>
+    <dmi-row :data="departures[0]"/>
+    <dmi-row :data="departures[1]"/>
   </div>
 </template>
 

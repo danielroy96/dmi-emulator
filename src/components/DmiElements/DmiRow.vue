@@ -1,34 +1,28 @@
 <template>
   <div class="row">
+    <dmi-pixel-line :data="fillBlank(240)"/>
     <dmi-pixel-line v-for="line in data" :data="line"/>
+    <dmi-pixel-line :data="fillBlank(240)"/>
   </div>
 </template>
 
 <script>
 import {defineComponent} from 'vue'
 import DmiPixel from "@/components/DmiElements/DmiPixel.vue";
-import {fill} from "@/js/util";
 import DmiPixelLine from "@/components/DmiElements/DmiPixelLine.vue";
+import {fillBlank} from "@/js/util";
 
 export default defineComponent({
   name: "DmiRow",
   components: {DmiPixelLine, DmiPixel},
   props: {
-    width: {
-      type: Number,
-      required: true,
-    },
-    height: {
-      type: Number,
-      required: true,
-    },
     data: {
       type: Array,
       required: true,
     }
   },
   methods: {
-    fill,
+    fillBlank,
   }
 })
 </script>

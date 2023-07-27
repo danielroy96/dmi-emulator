@@ -17,7 +17,7 @@ export async function getDepartures(): Array<Departure> {
     const departures = data.data
         .sort((a, b) => a.timeToStation - b.timeToStation)
         .map((tflPrediction, index) => ({
-            index: index,
+            index: index + 1,
             destination: tflPrediction.towards,
             time: transformTimeToStation(tflPrediction.timeToStation)
         }));

@@ -18,6 +18,7 @@ function departureStringToBytes(departureString: string): Array<Array<number>> {
             for (let k = 0; k < currentRow.length; k++) {
                 characterArray[j].push(Number(currentRow[k]));
             }
+            characterArray[j].push(0);
         }
     }
     return characterArray;
