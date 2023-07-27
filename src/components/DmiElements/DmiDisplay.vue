@@ -7,13 +7,19 @@
     <div class="controls" data-bs-theme="dark">
       <form>
         <div class="row">
-          <div class="col">
-            <select v-model="line" class="form-select form-select-sm3" @change="updateStops">
+          <div class="col-auto">
+            <label for="lineInput" class="col-form-label">Line</label>
+          </div>
+          <div class="col-auto">
+            <select v-model="line" id="lineInput" class="form-select form-select-sm3" @change="updateStops">
               <option v-for="item in lines" :value="item.id">{{ item.name }}</option>
             </select>
           </div>
-          <div class="col">
-            <select v-model="stop" class="form-select form-select-sm3" @change="updateDmiWithDepartures">
+          <div class="col-auto">
+            <label for="stopInput" class="col-form-label">Stop</label>
+          </div>
+          <div class="col-auto">
+            <select v-model="stop" id="stopInput" class="form-select form-select-sm3" @change="updateDmiWithDepartures">
               <option v-for="item in stops" :value="item.id">{{ item.name }}</option>
             </select>
           </div>
@@ -90,6 +96,11 @@ export default defineComponent({
 }
 
 .controls {
-  margin: 3em;
+  width: fit-content;
+  margin: auto;
+}
+
+label {
+  color: gray;
 }
 </style>
