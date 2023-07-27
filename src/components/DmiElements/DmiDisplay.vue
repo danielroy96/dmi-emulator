@@ -1,20 +1,20 @@
 <template>
   <div class="display">
-    <dmi-row :data="data" :height="8" :width="130"/>
-    <dmi-row :data="data" :height="8" :width="130"/>
+    <dmi-row :data="data" :height="7" :width="200"/>
+    <dmi-row :data="data" :height="7" :width="200"/>
   </div>
 </template>
 
 <script>
 import {defineComponent} from 'vue'
 import DmiRow from "@/components/DmiElements/DmiRow.vue";
-import {getDepartures} from "@/js/tfl";
+import {buildData} from "@/js/dmi";
 
 export default defineComponent({
   name: "DmiDisplay",
   components: {DmiRow},
   async mounted() {
-    this.departures = await getDepartures();
+    this.departures = await buildData();
   },
   data() {
     return {

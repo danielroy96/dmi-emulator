@@ -18,9 +18,9 @@ export default defineComponent({
 
 <style scoped>
 .pixel {
-  border-radius: 8px;
-  width: 8px;
-  height: 8px;
+  border-radius: 5px;
+  width: 5px;
+  height: 5px;
   background-color: #282828;
   display: inline-block;
 }
